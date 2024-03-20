@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>YeabMe</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Dasiy -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Theme-Change -->
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <!-- Jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body class="bg-base-100">
+    <!-- Loading -->
+    <div
+      class="spin-wrapper h-screen flex justify-center items-center bg-base-100"
+    >
+      <span class="loading loading-dots loading-lg"></span>
+    </div>
+    <!-- Loading End-->
+
+    <!-- Navbar -->
+    <div class="Nav-section navbar z-[99999] bg-base-100 shadow-sm" id="sticky">
+      <div class="navbar-start md:ml-12">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbar-center md:mr-6">
+        <a href="#home" class="btn btn-ghost text-lg">YeabMe</a>
+      </div>
+      <div class="navbar-end md:mr-12">
+        <label class="swap swap-rotate btn btn-ghost btn-circle">
+          <!-- this hidden checkbox controls the state -->
+          <input
+            type="checkbox"
+            class=" "
+            data-toggle-theme="dark,light"
+            data-act-class="ACTIVECLASS"
+            value="synthwave"
+          />
+
+          <!-- sun icon -->
+          <svg
+            class="swap-off fill-current w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
+            />
+          </svg>
+
+          <!-- moon icon -->
+          <svg
+            class="swap-on fill-current w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- DaisyUI success and error alerts -->
+    <div
+      id="successAlert"
+      class="fixed z-[9999] hidden mt-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded mt-[3rem] right-0 lg:mt-[2rem] lg:left-[45rem] lg:ml-64"
+      role="alert"
+    >
+      <p class="font-bold">Success!</p>
+      <p>Your message has been sent successfully.</p>
+    </div>
+    <div
+      id="errorAlert"
+      class="fixed z-[9999] hidden mt-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded mt-[6rem] right-0 lg:mt-[6rem] lg:left-[50rem] lg:ml-64"
+      role="alert"
+    >
+      <p class="font-bold">Error!</p>
+      <p>Please fill in all fields.</p>
+    </div>
+
+    <!-- Home -->
+    <div class="home hero min-h-[30rem] max-w-[60rem] mx-auto" id="home">
+      <div class="hero-content flex-col gap-5 md:gap-32 lg:flex-row">
+        <img
+          src="./assets/img/profileYeab.png"
+          class="max-w-sm rounded-lg shadow-2xl"
+        />
+        <div>
+          <h1 class="text-3xl font-bold">Yeabtsega Mesfin</h1>
+          <p class="py-6">
+            Hi there!👋 I'm Yeabtsega Mesfin, Passionate Full-stack web
+            developer. <br />In Ethiopia✨.
+          </p>
+          <button class="btn btn-primary">Download Resume</button>
+          <button class="btn btn-ghost">Contact</button>
+        </div>
+      </div>
+    </div>
+    <!-- Home End-->
+
+    <!-- Tech Stack -->
+    <div class="home max-w-[40rem] mx-auto">
+      <div
+        class="flex flex-col justify-first items-first mt-8 mx-5 sm:mx-20 lg:mt-0 lg:mx-0 lg:items-center lg:flex-row"
+      >
+        <div class="lg:mr-24 mb-6 lg:mb-0">
+          <h1 class="lg:-mt-14 mt-0 font-bold text-xl">
+            Tech-Stack <span class="text-gray-500 ml-5 lg:ml-6">&#124;</span>
+          </h1>
+        </div>
+
+        <div class="mb-12 lg:mb-24">
+          <ul class="flex flex-row gap-8">
+            <li class="text-3xl">
+              <img src="./assets/img/next.svg" alt="" class="w-10 mt-1" />
+            </li>
+            <li class="text-3xl">
+              <img src="./assets/img/react.svg" alt="" class="w-12" />
+            </li>
+            <li class="text-3xl">
+              <img src="./assets/img/mongo.svg" alt="" class="w-12" />
+            </li>
+            <li class="text-4xl">
+              <img src="./assets/img/node.svg" alt="" class="w-12" />
+            </li>
+            <li class="text-3xl">
+              <img src="./assets/img/express.svg" alt="" class="w-12" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Tech Stack End -->
+
+    <!-- About Title -->
+
+    <div class="about flex items-first justify-first" id="about">
+      <h2
+        class="text-lg font-bold decoration-sky-500 underline underline-offset-8 mt-24 mx-5 sm:mx-16 md:mx-48 lg:mx-32 xl:mx-64"
+      >
+        About Me
+      </h2>
+    </div>
+    <!-- About End -->
+
+    <!-- About -->
+    <div class="about hero min-h-[30rem] max-w-[60rem] mx-auto">
+      <div
+        class="hero-content flex-col gap-32 -mt-12 md:-mt-0 lg:flex-row-reverse"
+      >
+        <img
+          src="./assets/img/profileYeab.png"
+          class="max-w-sm rounded-lg shadow-6xl hidden lg:block"
+        />
+        <div>
+          <p class="max-w-[32rem] mx-auto">
+            I’m a Full-Stack web developer. I have a strong understanding of the
+            technical aspects of web development.
+          </p>
+          <h3 class="my-5 text-md">Personal info &#128071;</h3>
+
+          <div
+            class="border-2 card max-w-[30rem] mx-auto flex flex-row bg-base-100 shadow-6xl"
+          >
+            <div class="shadow-md">
+              <ul class="text-sm text-left p-5 text-gray-500">
+                <li class="mb-2">
+                  <i class="fa-solid fa-microphone"></i> Name :
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-envelope"></i> Email:
+                </li>
+                <li class="mb-2"><i class="fa-solid fa-flag"></i> Country :</li>
+                <li class="mb-2"><i class="fa-solid fa-city"></i> City :</li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-graduation-cap"></i> Degree :
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <ul class="text-sm text-left p-5">
+                <li class="mb-2">Yeabtsega Mesfin</li>
+                <li class="mb-2">yeabtsegamesfin2@gmail.com</li>
+                <li class="mb-2">Ethiopia✨</li>
+                <li class="mb-2">A.A</li>
+                <li class="mb-2">Bsc, Computer Science</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End-->
+
+    <!-- Portfolio Title -->
+
+    <div class="portfolio flex items-first justify-first mb-24" id="portfolio">
+      <h2
+        class="text-lg font-bold decoration-sky-500 underline underline-offset-8 mt-24 md:my-0 md:mt-24 mx-5 sm:mx-16 md:mx-48 lg:mx-32 xl:mx-64"
+      >
+        Portfolio
+      </h2>
+    </div>
+    <!-- Portfolio Title End -->
+
+    <!-- Portfolio -->
+
+    <div
+      class="portfolio grid grid-cols gap-5 my-16 max-w-[50rem] mx-5 sm:mx-28 md:mx-48 md:grid-cols-1 lg:grid-cols-3 lg:gap-12 lg:mx-auto"
+    >
+      <div
+        class="card card-compact bg-base-100  w-[28rem] sm:w-[31rem] lg:w-64"
+      >
+        <figure>
+          <img
+            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <div class="card-actions justify-first">
+            <!-- You can open the modal using ID.showModal() method -->
+            <button class="" onclick="my_modal_1.showModal()">
+              <p class="text-blue-800">More info</p>
+            </button>
+            <dialog id="my_modal_1" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Here?</p>
+                <button class="btn btn-ghost btn-circle">
+                  <i class="fa-brands fa-github"></i>
+                </button>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn absolute right-2 top-2">X</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+            
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card card-compact bg-base-100  w-[28rem] sm:w-[31rem] lg:w-64"
+      >
+        <figure>
+          <img
+            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <div class="card-actions justify-first">
+            <!-- You can open the modal using ID.showModal() method -->
+            <button class="" onclick="my_modal_2.showModal()">
+              <p class="text-blue-800">More info</p>
+            </button>
+            <dialog id="my_modal_2" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Here?</p>
+                <button class="btn btn-ghost btn-circle">
+                  <i class="fa-brands fa-github"></i>
+                </button>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn absolute right-2 top-2">X</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card card-compact bg-base-100  w-[28rem] sm:w-[31rem] lg:w-64"
+      >
+        <figure>
+          <img
+            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <div class="card-actions justify-first">
+            <!-- You can open the modal using ID.showModal() method -->
+            <button class="" onclick="my_modal_3.showModal()">
+              <p class="text-blue-800">More info</p>
+            </button>
+            <dialog id="my_modal_3" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Here?</p>
+                <button class="btn btn-ghost btn-circle">
+                  <i class="fa-brands fa-github"></i>
+                </button>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn absolute right-2 top-2">X</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card card-compact bg-base-100  w-[28rem] sm:w-[31rem] lg:w-64"
+      >
+        <figure>
+          <img
+            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <div class="card-actions justify-first">
+            <!-- You can open the modal using ID.showModal() method -->
+            <button class="" onclick="my_modal_4.showModal()">
+              <p class="text-blue-800">More info</p>
+            </button>
+            <dialog id="my_modal_4" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Here?</p>
+                <button class="btn btn-ghost btn-circle">
+                  <i class="fa-brands fa-github"></i>
+                </button>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn absolute right-2 top-2">X</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card card-compact bg-base-100  w-[28rem] sm:w-[31rem] lg:w-64"
+      >
+        <figure>
+          <img
+            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <div class="card-actions justify-first">
+            <!-- You can open the modal using ID.showModal() method -->
+            <button class="" onclick="my_modal_5.showModal()">
+              <p class="text-blue-800">More info</p>
+            </button>
+            <dialog id="my_modal_5" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Here?</p>
+                <button class="btn btn-ghost btn-circle">
+                  <i class="fa-brands fa-github"></i>
+                </button>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn absolute right-2 top-2">X</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card card-compact bg-base-100  w-[28rem] sm:w-[31rem] lg:w-64"
+      >
+        <figure>
+          <img
+            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <div class="card-actions justify-first">
+            <!-- You can open the modal using ID.showModal() method -->
+            <button class="" onclick="my_modal_6.showModal()">
+              <p class="text-blue-800">More info</p>
+            </button>
+            <dialog id="my_modal_6" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Here?</p>
+                 <button class="btn btn-ghost btn-circle">
+              <i class="fa-brands fa-github"></i>
+            </button>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn absolute right-2 top-2">X</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Portfolio End-->
+
+    <!-- Contact Title -->
+
+    <div class="contact flex items-first justify-first mb-24" id="contact">
+      <h2
+        class="text-lg font-bold decoration-sky-500 underline underline-offset-8 mt-24 md:my-0 md:mt-24 mx-5 sm:mx-16 md:mx-48 lg:mx-32 xl:mx-64"
+      >
+        Contact
+      </h2>
+    </div>
+    <!-- Contact Title End -->
+
+    <!-- Contact  -->
+    <div class="contact max-w-[50rem] mx-auto mt-8 my-32">
+      <div class="grid grid-cols-1 sm:mx-[7rem] lg:mx-0 md:grid-cols-3 gap-12">
+        <!-- Contact Form -->
+        <div class="md:col-span-2">
+          <form
+            id="contactForm"
+            class="bg-base-100 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4"
+          >
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-xs font-bold mb-2"
+                for="name"
+              >
+                Name
+              </label>
+              <input
+                class="bg-base-100 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="Name"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-xs font-bold mb-2"
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="bg-base-100 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Email"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                class="block text-gray-700 text-xs font-bold mb-2"
+                for="message"
+              >
+                Message
+              </label>
+              <textarea
+                class="bg-base-100 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="message"
+                placeholder="Message"
+              ></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+              <button
+                id="submitButton"
+                class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Side Cards -->
+        <div
+          class="contact md:col-span-1 lg:ml-10 mx-5 md:mx-0 lg:mx-0 xl:mx-0"
+        >
+          <div class="bg-base-100 shadow-md rounded-xl p-4 mb-4">
+            <h2 class="text-md font-semibold mb-4">My Location</h2>
+            <p>Addis Ababa</p>
+            <p>Ethiopia</p>
+          </div>
+          <div class="bg-base-100 shadow-md rounded-xl p-4 mb-4">
+            <h2 class="text-md font-semibold mb-4">Street</h2>
+            <p>Ethio China St,</p>
+          </div>
+          <div class="bg-base-100 shadow-md rounded-xl p-4 mb-4">
+            <h2 class="text-md font-semibold mb-4">Phone Number</h2>
+            <p>+251930488356</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact End -->
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+      <aside>
+        <p>Copyright © 2024 - All right reserved by YeabMe</p>
+      </aside>
+    </footer>
+    <!-- Footer End-->
+
+    <!-- JS -->
+    <script src="./assets/js/script.js"></script>
+    <!-- Contact JS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+
+    <script>
+      // Function to show error alert at the top of the page
+      function showErrorAlert() {
+        var errorAlert = document.getElementById("errorAlert");
+        errorAlert.classList.remove("hidden");
+        errorAlert.style.top = "0"; // Position at the top of the page
+
+        setTimeout(function () {
+          errorAlert.classList.add("hidden"); // Hide the alert after 10 seconds
+        }, 1000); // 10 seconds
+      }
+
+      // Initialize EmailJS with your user ID
+      emailjs.init("w33vCo8iLUm8Xw_ph");
+
+      // Function to send email
+      function sendEmail() {
+        // Get form values
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var message = document.getElementById("message").value.trim();
+
+        // Check if any field is empty
+        if (!name || !email || !message) {
+          showErrorAlert(); // Call showErrorAlert to show and hide the error alert after 10 seconds
+          return;
+        }
+
+        // Send email using EmailJS
+        emailjs
+          .send("service_8skmivo", "template_wil7z7j", {
+            name: name,
+            email: email,
+            message: message,
+          })
+          .then(
+            function (response) {
+              console.log("Email sent successfully:", response);
+              // Show success alert
+              document
+                .getElementById("successAlert")
+                .classList.remove("hidden");
+              // Reset form fields
+              document.getElementById("contactForm").reset();
+              // Hide error alert if previously shown
+              document.getElementById("errorAlert").classList.add("hidden");
+              // Hide success alert after 10 seconds
+              setTimeout(function () {
+                document.getElementById("successAlert").classList.add("hidden");
+              }, 1000); // 10 seconds
+            },
+            function (error) {
+              console.error("Email sending failed:", error);
+              alert("Sorry, there was an error sending your message.");
+            }
+          );
+      }
+
+      // Add submit event listener to the form
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          sendEmail();
+        });
+    </script>
+  </body>
+</html>
